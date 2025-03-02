@@ -15,6 +15,7 @@
 package cloudflare
 
 import (
+	"fmt"
 	"github.com/caddyserver/caddy/v2"
 	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
 	"github.com/libdns/cloudflare"
@@ -94,6 +95,7 @@ func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	if p.Provider.APIToken == "" {
 		return d.Err("missing API token")
 	}
+	fmt.Printf("API token is %s", p.Provider.APIToken)
 	return nil
 }
 
